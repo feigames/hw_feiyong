@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <!--noupdate防止升级时再次添加-->
+    <data noupdate="1">
+        <record id="seq_type_hw_feiyong_baoxiao" model="ir.sequence.type">
+            <field name="name">hw_feiyong_baoxiao</field>
+            <field name="code">hw.feiyong.baoxiao</field>
+        </record>
+        <record id="seq_hw_feiyong_baoxiao" model="ir.sequence">
+            <field name="name">hw_feiyong_baoxiao</field>
+            <field name="code">hw.feiyong.baoxiao</field>
+            <field name="prefix">HW/%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</openerp>

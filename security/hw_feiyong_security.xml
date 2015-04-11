@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="module_category_hw_feiyong_access">
+            <field name="name">海外费用查看权限</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="group_hw_feiyong_self" model="res.groups">
+            <field name="name">查看自己单据</field>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="menu_access" eval="[(4, ref('hw_feiyong.hw_feiyong_root_menu')),(4, ref('hw_feiyong.hw_feiyong_menu'))
+                ,(4, ref('hw_feiyong.hw_feiyong_baoxiao_menu')),(4, ref('hw_feiyong.hw_feiyong_configuration'))
+                ,(4, ref('hw_feiyong.hw_feiyong_configuration_account'))]"/>
+            <field name="view_access" eval="[(4, ref('hw_feiyong.hw_feiyong_baoxiao_form')),(4, ref('hw_feiyong.hw_feiyong_baoxiao_tree'))
+                ,(4, ref('hw_feiyong.hw_feiyong_baoxiao_line_view_tree'))]"/>
+        </record>
+        <record id="property_rule_hw_feiyong_base" model="ir.rule">
+            <field name="name">查看自己单据</field>
+            <field name="model_id" ref="model_hw_feiyong_baoxiao"/>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="domain_force">[('employee_id','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('group_hw_feiyong_self'))]"/>
+        </record>
+
+
+    <record id="group_hw_feiyong_department" model="res.groups">
+            <field name="name">查看本部门单据</field>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_hw_feiyong_self'))]"/>
+        </record>
+ 
+        <record id="property_rule_hw_feiyong_department" model="ir.rule">
+            <field name="name">查看本部门单据</field>
+            <field name="model_id" ref="model_hw_feiyong_baoxiao"/>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="domain_force">[('department_id.id','=',[user.department_id.id])]</field>
+            <field name="groups" eval="[(4,ref('group_hw_feiyong_department'))]"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="0" name="perm_create"/>
+        </record>
+
+
+     <record id="group_hw_feiyong_dgm" model="res.groups">
+            <field name="name">查看分管部门单据</field>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_hw_feiyong_self'))]"/>
+        </record>      
+
+        <record id="property_rule_hw_feiyong_dgm" model="ir.rule">
+            <field name="name">查看分管部门单据</field>
+            <field name="model_id" ref="model_hw_feiyong_baoxiao"/>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="domain_force">[('department_id.id','child_of',[user.department_id.id])]</field>
+            <field name="groups" eval="[(4,ref('group_hw_feiyong_dgm'))]"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="0" name="perm_create"/>
+        </record>
+
+     <record id="group_hw_feiyong_companys" model="res.groups">
+            <field name="name">公司级查看权</field>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_hw_feiyong_self'))]"/>
+        </record>      
+
+        <record id="property_rule_hw_feiyong_companys" model="ir.rule">
+            <field name="name">公司级查看权</field>
+            <field name="model_id" ref="model_hw_feiyong_baoxiao"/>
+            <field name="category_id" ref="module_category_hw_feiyong_access"/>
+            <field name="domain_force">[('company_id.id','child_of',[user.company_ids.id])]</field>
+            <field name="groups" eval="[(4,ref('group_hw_feiyong_companys'))]"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="0" name="perm_create"/>
+        </record>
+
+        <record model="ir.module.category" id="module_category_hw_feiyong_shenpi">
+            <field name="name">海外费用审批权限</field>
+            <field name="sequence">2</field>
+        </record>
+
+       <record id="group_confirm" model="res.groups">
+            <field name="name">提交单据权</field>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">部门审核权</field>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_confirm'))]"/>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+        <record id="group_fr" model="res.groups">
+            <field name="name">财务审核权</field>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_confirm'))]"/>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+        <record id="group_payment" model="res.groups">
+            <field name="name">出纳付款</field>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_confirm'))]"/>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+        <record id="group_gm" model="res.groups">
+            <field name="name">总经理审核权</field>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_confirm'))]"/>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+
+        <record id="group_dgm" model="res.groups">
+            <field name="name">分管领导审核权</field>
+            <field name="implied_ids" eval="[(4, ref('hw_feiyong.group_confirm'))]"/>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+        <record id="group_refused" model="res.groups">
+            <field name="name">单据退回权限</field>
+            <field name="category_id" ref="module_category_hw_feiyong_shenpi"/>
+        </record>
+
+    </data>
+</openerp>

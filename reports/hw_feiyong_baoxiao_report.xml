@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report 
+            id="action_report_hw_feiyong_baoxiao"
+            string="费用报销单"
+            model="hw.feiyong.baoxiao"
+            report_type="qweb-pdf"
+            name="hw_feiyong.hw_feiyong_baoxiao_report_view"
+            file="hw_feiyong.hw_feiyong_baoxiao_report_view"
+            />
+    </data>
+</openerp>

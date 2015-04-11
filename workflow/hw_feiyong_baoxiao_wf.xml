@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="wkf_hw_feiyong_baoxiao" model="workflow">
+            <field name="name">hw.wkf.feiyong.baoxiao</field>
+            <field name="osv">hw.feiyong.baoxiao</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">draft</field>
+            <field name="flow_start">True</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'draft'})</field>
+        </record>
+
+        <record id="act_jieshu" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">jieshu</field>
+            <field name="flow_stop">True</field>
+            <field name="kind">stopall</field>
+        </record>  
+
+        <record id="act_confirm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">confirm</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'manager'})</field>
+        </record>
+
+        <record id="act_fr" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">fr</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'fr'})</field>
+        </record>
+
+
+        <record id="act_gm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">gm</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'gm'})</field>
+        </record>     
+
+        <record id="act_payment" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">fukuan</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'approved'})</field>
+        </record>
+
+        <record id="act_paid" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">paid</field>
+            <field name="kind">function</field>
+            <field name="action">baoxiao_fukuan()</field>
+        </record>
+
+        <record id="act_dgm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_hw_feiyong_baoxiao"/>
+            <field name="name">dgm</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state':'dgm'})</field>
+        </record>
+
+
+        <record id="t1" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirm"/>
+            <field name="signal">confirm</field>
+            <field name="condition">job_id.name != 'General Manager' and job_id.name != 'Deputy General Manager'</field>
+        </record>
+
+        <record id="t2" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_fr"/>
+            <field name="signal">confirm</field>
+            <field name="condition">job_id.name == 'General Manager' </field>
+        </record>
+
+        <record id="t7" model="workflow.transition">
+            <field name="act_from" ref="act_fr"/>
+            <field name="act_to" ref="act_payment"/>
+            <field name="signal">fr</field>
+            <field name="condition">job_id.name == 'General Manager' </field>
+        </record>
+
+
+        <record id="dgm1" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_fr"/>
+            <field name="signal">confirm</field>
+            <field name="condition">job_id.name == 'Deputy General Manager' </field>
+        </record>
+
+        <record id="dgm2" model="workflow.transition">
+            <field name="act_from" ref="act_fr"/>
+            <field name="act_to" ref="act_gm"/>
+            <field name="signal">fr</field>
+            <field name="condition">job_id.name == 'Deputy General Manager' or department_id.zhiguan == True </field>
+        </record>
+
+        <record id="dgm3" model="workflow.transition">
+            <field name="act_from" ref="act_gm"/>
+            <field name="act_to" ref="act_payment"/>
+            <field name="signal">gm</field>
+            <field name="condition">job_id.name == 'Deputy General Manager' </field>
+        </record>
+
+
+        <record id="t3" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_fr"/>
+            <field name="signal">manager</field>
+        </record>
+
+
+        <record id="tfenguansh" model="workflow.transition">
+            <field name="act_from" ref="act_fr"/>
+            <field name="act_to" ref="act_dgm"/>
+            <field name="signal">fr</field>
+            <field name="condition">(job_id.name != 'General Manager' and job_id.name != 'Deputy General Manager') or department_id.zhiguan != True</field>
+        </record>
+
+        <record id="t4" model="workflow.transition">
+            <field name="act_from" ref="act_dgm"/>
+            <field name="act_to" ref="act_gm"/>
+            <field name="signal">dgm</field>
+        </record>
+
+        <record id="t5" model="workflow.transition">
+            <field name="act_from" ref="act_gm"/>
+            <field name="act_to" ref="act_payment"/>
+            <field name="signal">gm</field>
+        </record>
+
+
+        <record id="tfukuan" model="workflow.transition">
+            <field name="act_from" ref="act_payment"/>
+            <field name="act_to" ref="act_paid"/>
+            <field name="signal">payment</field>
+        </record>
+
+        <record id="tjieshu" model="workflow.transition">
+            <field name="act_from" ref="act_paid"/>
+            <field name="act_to" ref="act_jieshu"/>
+        </record>
+
+
+        <record id="tb1" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">refused</field>
+        </record>
+
+
+        <record id="tb3" model="workflow.transition">
+            <field name="act_from" ref="act_dgm"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">refused</field>
+        </record>
+
+
+        <record id="tb4" model="workflow.transition">
+            <field name="act_from" ref="act_gm"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">refused</field>
+        </record>
+
+
+        <record id="tb6" model="workflow.transition">
+            <field name="act_from" ref="act_fr"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">refused</field>
+        </record>
+
+    </data>
+</openerp>

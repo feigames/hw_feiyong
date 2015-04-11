@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model='ir.ui.view' id='hw_feiyong_baoxiao_form'>
+            <field name="name">hw.feiyong.baoxiao.form</field>
+            <field name="model">hw.feiyong.baoxiao</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+<button name="confirm" states="draft" string="Confirm" type="workflow" class="oe_highlight" groups="hw_feiyong.group_confirm" confirm="Need to submit the documents!"/>
+<button name="manager" states="manager" string="Manager" type="workflow" class="oe_highlight" groups="hw_feiyong.group_manager" confirm="Sure approval!"/>
+<button name="fr" states="fr" string="Reviewed by Accountant" type="workflow" class="oe_highlight" groups="hw_feiyong.group_fr" confirm="Sure approval!"/>
+<button name="dgm" states="dgm" string="Deputy General Manager" type="workflow" class="oe_highlight" groups="hw_feiyong.group_dgm" confirm="Sure approval!"/>
+<button name="gm" states="gm" string="General Manager" type="workflow" class="oe_highlight" groups="hw_feiyong.group_gm" confirm="Sure approval!"/>
+<button name="payment" states="approved" string="Payment" type="workflow" class="oe_highlight" groups="hw_feiyong.group_payment" confirm="Sure Payment!"/>
+<button name="refused" attrs="{'invisible':[('state', 'in',['draft','paid','approved'])]}" string="Refused" type="workflow" class="oe_highlight" groups="hw_feiyong.group_refused" confirm="Don't agree to return to the originator documents!"/>
+<field name="state" widget="statusbar" statusbar_visible="draft,fr,manager,dgm,gm,approved,paid" statusbar_colors='{"sent":"blue","draft":"red"}'/>
+                    </header>
+                    <sheet>
+<div style="opacity:0.8;position:absolute; left:490px; top:120px;" 
+    attrs="{'invisible':[('state', 'in',['draft','fr','manager','gm','dgm','refused'])]}"> 
+ <img src="hw_feiyong/static/src/img/zhang.png" />
+</div>
+                        <div class="oe_title">
+                            <h1>
+                                <label string="No.:" class="oe_inline" />
+                                <field name="name" class="oe_inline" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" />
+                                <field name="department_id" />
+                                <field name="company_id" />
+                                <field name="date_invoice" />
+                                <field name="date_paid" />
+                                <field name="payment" />
+                            </group>
+                            <group>
+                                <field name="company_lz" />
+                                <field name="job_id" />
+                                <field name="currency" />
+                                <field name="rate" />
+                                <field name="st_amount" />
+                                <field name="description" />
+                                <field name="cashier_id" />
+                            </group>
+                        </group>
+
+                        <field name="line_ids"/>
+
+                        <group>
+                            <div>
+                                <separator string="Notes"/>
+                                <field name="note" placeholder="Free Notes"/>
+                            </div>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount" widget="monetary" options="{'currency_field': 'currency'}" 
+                                    class="oe_subtotal_footer_separator"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='hw_feiyong_baoxiao_tree'>
+            <field name="name">hw.feiyong.baoxiao.tree</field>
+            <field name="model">hw.feiyong.baoxiao</field>
+            <field name="arch" type="xml">
+                <tree string="Overseas Expense tree" colors="blue:(state=='paid');red:(state=='draft')">
+                    <field name="name" />
+                    <field name="employee_id" />
+                    <field name="state" />
+                    <field name="company_lz" />
+                    <field name="description" />
+                    <field name="payment" />
+                    <field name="cashier_id" />
+                    <field name="amount" sum="Total"/>
+                    <field name="st_amount"  sum="Total"/>
+                </tree>
+            </field>
+        </record>
+
+<record id="view_hw_feiyong_baoxiao_filter" model="ir.ui.view">
+  <field name="name">hw.feiyong.baoxiao.filter</field>
+  <field name="model">hw.feiyong.baoxiao</field>
+  <field name="arch" type="xml">
+    <search string="overseas Expense">
+      <field name="name" string="NO."/>
+      <field name="description" string="description"/>
+      <field name="amount" string="Amount"/>
+      <filter icon="terp-document-new" domain="[('state','=','draft')]" string="Draft" help="In a draft state documents"/>
+      <separator/>
+      <filter domain="[('employee_id.user_id', '=', uid)]" string="My expense account"/>
+      <group expand="0" string="GroupBy">
+        <filter string="payment" icon="terp-personal+" domain="[]" context="{'group_by':'payment'}"/>
+        <filter string="Building Company" icon="terp-personal+" domain="[]" context="{'group_by':'company_lz'}"/>
+        <filter string="Cashier" icon="terp-personal+" domain="[]" context="{'group_by':'cashier_id'}"/>
+        <filter string="State" icon="terp-personal+" domain="[]" context="{'group_by':'state'}"/>
+      </group>
+    </search>
+  </field>
+</record>
+
+        <record model="ir.ui.view" id="hw_feiyong_baoxiao_line_view_tree">
+            <field name="name">hw.feiyong.baoxiao.line.view.tree</field>
+            <field name="model">hw.feiyong.baoxiao.lines</field>
+            <field name="arch" type="xml">
+                <tree string="hw_baoxiao_line tree" editable='top'>
+                    <field name="account"/>
+                    <field name="note"/>
+                    <field name="jine" sum="Total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hw_feiyong_baoxiao">
+            <field name="name">Overseas Expense</field>
+            <field name="res_model">hw.feiyong.baoxiao</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Please click here for the construction of a new recording of my own expenses,
+                 and then submit!
+                </p>
+            </field>
+        </record>
+    </data>
+</openerp>

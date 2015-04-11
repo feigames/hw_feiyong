@@ -1,0 +1,540 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hw_feiyong
+#	* hw_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150307\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-25 02:52+0000\n"
+"PO-Revision-Date: 2015-03-25 02:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "(Date and signature)."
+msgstr "(Date and signature)."
+
+#. module: hw_feiyong
+#: model:ir.actions.act_window,help:hw_feiyong.action_hw_feiyong_baoxiao
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Please click here for the construction of a new recording of my own expenses,\n"
+"                 and then submit!\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    请按这里填写自己的报销单据,\n"
+"                 并且提交!\n"
+"                </p>\n"
+"            "
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao.lines,account:0
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Account"
+msgstr "费用科目"
+
+#. module: hw_feiyong
+#: model:ir.ui.menu,name:hw_feiyong.hw_feiyong_configuration_account
+msgid "Accounts"
+msgstr "科目"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+#: field:hw.feiyong.baoxiao,amount:0
+msgid "Amount"
+msgstr "总金额"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Approved"
+msgstr "核准"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,payment:0
+msgid "Bank Transfer"
+msgstr "银行转账"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+#: field:hw.feiyong.baoxiao,company_lz:0
+msgid "Building Company"
+msgstr "费用列支公司"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,payment:0
+msgid "Cash"
+msgstr "现金"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+#: field:hw.feiyong.baoxiao,cashier_id:0
+msgid "Cashier"
+msgstr "出纳"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Certified honest and conform,"
+msgstr "已证明真实和一致"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,company_id:0
+msgid "Company"
+msgstr "公司"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Confirm"
+msgstr "提交"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,create_uid:0
+#: field:hw.feiyong.baoxiao.lines,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,create_date:0
+#: field:hw.feiyong.baoxiao.lines,create_date:0
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,currency:0
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Currency"
+msgstr "币种"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,date_invoice:0
+msgid "Date invoice"
+msgstr "报销日期"
+
+#. module: hw_feiyong
+#: help:hw.feiyong.baoxiao,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "最后一条消息发布的日期."
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Date:"
+msgstr "日期:"
+
+#. modules: hw_feiyong, hw_base
+#: field:res.users,department_id:0
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+#: field:hw.feiyong.baoxiao,department_id:0
+msgid "Department"
+msgstr "部门"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Deputy General Manager"
+msgstr "分管领导"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,description:0
+msgid "Description"
+msgstr "支付理由"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Description:"
+msgstr "说明："
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Don't agree to return to the originator documents!"
+msgstr "不同意,返回发起人!"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Draft"
+msgstr "草稿"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,employee_id:0
+msgid "Employee"
+msgstr "报销人"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Employee:"
+msgstr "报销人:"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,line_ids:0
+msgid "Expense Lines"
+msgstr "报销明细"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_follower_ids:0
+msgid "Followers"
+msgstr "关注人"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Free Notes"
+msgstr "备注"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "General Manager"
+msgstr "总经理"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "GroupBy"
+msgstr "分组"
+
+#. module: hw_feiyong
+#: help:hw.feiyong.baoxiao,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,id:0
+#: field:hw.feiyong.baoxiao.lines,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hw_feiyong
+#: help:hw.feiyong.baoxiao,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "如果检查新的消息需要你的注意."
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "In a draft state documents"
+msgstr "草稿状态单据"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_is_follower:0
+msgid "Is a Follower"
+msgstr "是否为关注者"
+
+#. modules: hw_feiyong, hw_base
+#: field:res.users,job_id:0
+#: field:hw.feiyong.baoxiao,job_id:0
+msgid "Job"
+msgstr "职位"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_last_post:0
+msgid "Last Message Date"
+msgstr "最后一条消息日期"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,write_uid:0
+#: field:hw.feiyong.baoxiao.lines,write_uid:0
+msgid "Last Updated by"
+msgstr "最后更新"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,write_date:0
+#: field:hw.feiyong.baoxiao.lines,write_date:0
+msgid "Last Updated on"
+msgstr "最后更新日期"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Manager"
+msgstr "部门经理"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_ids:0
+msgid "Messages"
+msgstr "消息"
+
+#. module: hw_feiyong
+#: help:hw.feiyong.baoxiao,message_ids:0
+msgid "Messages and communication history"
+msgstr "历史消息"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Money"
+msgstr "金额"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "My expense account"
+msgstr "我的报销单"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "NO."
+msgstr "编号."
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,name:0
+msgid "Name"
+msgstr "编号"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Need to submit the documents!"
+msgstr "需要提交单据!"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "No.:"
+msgstr "编号.:"
+
+#. module: hw_feiyong
+#: code:addons/hw_feiyong/hw_feiyong_baoxiao.py:82
+#, python-format
+msgid "Not Expense lines"
+msgstr "没有报销明细"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Note"
+msgstr "备注"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: field:hw.feiyong.baoxiao.lines,note:0
+msgid "Notes"
+msgstr "备注"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,payment:0
+msgid "Offset Cash Advance"
+msgstr "备用金冲抵"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,payment:0
+msgid "Other"
+msgstr "其他"
+
+#. module: hw_feiyong
+#: model:ir.actions.act_window,name:hw_feiyong.action_hw_feiyong_baoxiao
+#: model:ir.ui.menu,name:hw_feiyong.hw_feiyong_baoxiao_menu
+#: model:ir.ui.menu,name:hw_feiyong.hw_feiyong_menu
+#: model:ir.ui.menu,name:hw_feiyong.hw_feiyong_root_menu
+msgid "Overseas Expense"
+msgstr "海外费用报销"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_tree
+msgid "Overseas Expense tree"
+msgstr "海外费用报销明细"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Overseas Expenses"
+msgstr "费用报销单"
+
+#. module: hw_feiyong
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Paid"
+msgstr "已付款"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: field:hw.feiyong.baoxiao,payment:0
+msgid "Payment"
+msgstr "付款"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,rate:0
+msgid "Rate"
+msgstr "汇率"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Refused"
+msgstr "退回"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+#: selection:hw.feiyong.baoxiao,state:0
+msgid "Reviewed by Accountant"
+msgstr "财务审核"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,st_amount:0
+msgid "ST_Amount"
+msgstr "本位币总金额"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_summary:0
+msgid "Summary"
+msgstr "合计"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Sure Payment!"
+msgstr "确定付款吗!"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_form
+msgid "Sure approval!"
+msgstr "确定审核通过吗!"
+
+#. module: hw_feiyong
+#: sql_constraint:hw.feiyong.baoxiao:0
+msgid "The NO. must be unique !"
+msgstr "单据号必须唯一 !"
+
+#. module: hw_feiyong
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "This document must be dated and signed for reimbursement."
+msgstr "This document must be dated and signed for reimbursement."
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.hw_feiyong_baoxiao_tree
+#: view:hw.feiyong.baoxiao.lines:hw_feiyong.hw_feiyong_baoxiao_line_view_tree
+#: view:website:hw_feiyong.hw_feiyong_baoxiao_report_view
+msgid "Total"
+msgstr "合计"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,message_unread:0
+msgid "Unread Messages"
+msgstr "未读记录"
+
+#. module: hw_base
+#: model:ir.model,name:hw_base.model_res_users
+msgid "Users"
+msgstr "用户"
+
+#. module: hw_feiyong
+#: code:addons/hw_feiyong/hw_feiyong_baoxiao.py:75
+#, python-format
+msgid "You can only delete the state of the draft documents!"
+msgstr "只允许删除草稿状态的记录!"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao.lines,baoxiao_id:0
+msgid "baoxiao_id"
+msgstr "报销单ID"
+
+#. module: hw_feiyong
+#: model:ir.ui.menu,name:hw_feiyong.hw_feiyong_configuration
+msgid "configuration"
+msgstr "设置"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "description"
+msgstr "支付理由"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao.lines:hw_feiyong.hw_feiyong_baoxiao_line_view_tree
+msgid "hw_baoxiao_line tree"
+msgstr "报销明细"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao.lines,jine:0
+msgid "money"
+msgstr "金额"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,note:0
+msgid "note"
+msgstr "备注"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "overseas Expense"
+msgstr "海外费用报销"
+
+#. module: hw_feiyong
+#: view:hw.feiyong.baoxiao:hw_feiyong.view_hw_feiyong_baoxiao_filter
+msgid "payment"
+msgstr "付款方式"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,date_paid:0
+msgid "payment day"
+msgstr "付款日期"
+
+#. module: hw_feiyong
+#: field:hw.feiyong.baoxiao,state:0
+msgid "status"
+msgstr "状态"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_hw_feiyong_companys
+msgid "公司级查看权"
+msgstr "公司级查看权"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_payment
+msgid "出纳付款"
+msgstr "出纳付款"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_dgm
+msgid "分管领导审核权"
+msgstr "分管领导审核权"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_refused
+msgid "单据退回权限"
+msgstr "单据退回权限"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_gm
+msgid "总经理审核权"
+msgstr "总经理审核权"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_confirm
+msgid "提交单据权"
+msgstr "提交单据权"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_hw_feiyong_dgm
+msgid "查看分管部门单据"
+msgstr "查看分管部门单据"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_hw_feiyong_department
+msgid "查看本部门单据"
+msgstr "查看本部门单据"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_hw_feiyong_self
+msgid "查看自己单据"
+msgstr "查看自己单据"
+
+#. module: hw_feiyong
+#: model:ir.module.category,name:hw_feiyong.module_category_hw_feiyong_shenpi
+msgid "海外费用审批权限"
+msgstr "海外费用审批权限"
+
+#. module: hw_feiyong
+#: model:ir.module.category,name:hw_feiyong.module_category_hw_feiyong_access
+msgid "海外费用查看权限"
+msgstr "海外费用查看权限"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_fr
+msgid "财务审核权"
+msgstr "财务审核权"
+
+#. module: hw_feiyong
+#: model:ir.actions.report.xml,name:hw_feiyong.action_report_hw_feiyong_baoxiao
+msgid "费用报销单"
+msgstr "费用报销单"
+
+#. module: hw_feiyong
+#: model:res.groups,name:hw_feiyong.group_manager
+msgid "部门审核权"
+msgstr "部门审核权"
+

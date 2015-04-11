@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem id="hw_feiyong_root_menu" name="Overseas Expense" />
+        <menuitem id="hw_feiyong_menu" name="Overseas Expense" parent="hw_feiyong_root_menu" sequence="10"/>
+        <menuitem id="hw_feiyong_baoxiao_menu" name="Overseas Expense" parent="hw_feiyong_menu" action="hw_feiyong.action_hw_feiyong_baoxiao" />
+        <menuitem id="hw_feiyong_configuration" name="configuration" parent="hw_feiyong_root_menu" sequence="20" />
+        <menuitem id="hw_feiyong_configuration_account" name="Accounts" parent="hw_feiyong_configuration" sequence="10" action="account.action_account_form" />
+    </data>
+</openerp>
